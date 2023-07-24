@@ -29,6 +29,14 @@ func LoadConfig(path string) (config Config, err error) {
 		fmt.Print("config file is not found")
 		return
 	}
+	// viper.BindEnv("Dbhost", "postgres_host")
+	// viper.BindEnv("Dbusername", "postgres_user")
+	// viper.BindEnv("Dbpassword", "postgres_password")
+	// viper.BindEnv("Dbname", "postgres_db")
+	// viper.BindEnv("Dbport", "postgres_port")
+	// viper.WriteConfigAs("abctest")
+
+	// The current viper implementation does not allow to viper.Unmarshal environment variables into structs without binding them first (using viper.BindEnv). This behavior results in an "empty" struct (i.e no values filled) if no configuration file is provided with matching keys.
 
 	err = viper.Unmarshal(&config) //masalah anjing config is {    }, tapi di viper.Get bisa
 
