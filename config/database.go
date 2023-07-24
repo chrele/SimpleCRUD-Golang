@@ -11,7 +11,7 @@ import (
 func ConnectionDB(config *Config) *gorm.DB {
 	// fmt.Printf("123123 %s" + config.Dbhost)
 
-	sqlInfo := fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", config.Dbhost, config.Dbport, config.Dbusername, config.Dbpassword, config.Dbname)
+	sqlInfo := fmt.Sprint("host=localhost port=5432 user=postgres password=postgres dbname=test sslmode=disable")
 
 	db, err := gorm.Open(postgres.Open(sqlInfo), &gorm.Config{})
 	helper.ErrorPanic(err)
