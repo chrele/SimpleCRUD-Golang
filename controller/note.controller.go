@@ -75,8 +75,6 @@ func (controller *NoteController) FindById(ctx *fiber.Ctx) error {
 	noteId := ctx.Params("noteId")
 	id, err := strconv.Atoi(noteId)
 	helper.ErrorPanic(err)
-	controller.noteService.Delete(id)
-
 	noteResponse := controller.noteService.FindById(id)
 
 	webResponse := response.Response{
